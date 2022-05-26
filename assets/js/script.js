@@ -13,11 +13,19 @@ const taskFormHandler = () => {
 
     const taskTypeInput = document.querySelector("select[name='task-type']").value;
 
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+
+        return false;
+    }
+
     const taskDataObj = {
         name: taskNameInput,
 
         type:taskTypeInput
     };
+
+    formEl.reset();
 
     createTaskElement(taskDataObj);
     
